@@ -464,13 +464,39 @@ If the agent is starting an Under Contract or Post-Close & Nurture stage for a p
 - If you generate a second version of the same content for the same property, append a date suffix: `mls-description-2026-04-12.md` (don't overwrite the original — the agent may want to compare)
 - Always use `.md` for text content
 
-### Always tell the agent where you saved it
+### Always share clickable file links that open in the Cowork preview
 
-Every response that produces a file should end with a one-line "Saved to:" pointer using a relative path from `Otto Workspace/`. Example:
+**Every time you finish generating a file — whether it's a full package, a one-off item, an email, a social post, a checklist, or a profile update — end the response with a clickable `computer://` link to every file you created in that turn.** These links open the file directly in Cowork's preview pane when clicked, so the agent can read, scroll, and review without leaving the chat. Never give a plain-text path or a backticked path — those are not clickable and the agent can't open them.
 
-> Saved to: `Otto Workspace/Listings/742-maple-drive/Open Houses/2026-04-12/open-house-promo-instagram.md`
+**Link format:**
 
-Don't write a paragraph about the file. One line, monospace, done.
+```
+[filename.md](computer:///absolute/path/to/Otto Workspace/{folder}/{filename.md})
+```
+
+- Use the **real absolute path** to the file on disk — the same path you just used when you wrote the file. Never use ellipses, placeholders, or relative paths like `./` or `~/` in the URL; Cowork's preview won't resolve them and the link will be dead.
+- **Link text = filename only** (e.g., `welcome-email.md`). The full path lives inside the parentheses, not in the visible link text — this keeps the chat clean.
+- One link per line, in the order the items appear in the package spec.
+
+**Rules:**
+
+- **Single one-off item** → one clickable `computer://` link at the end of the response.
+- **Full package (multiple files)** → list every file generated as its own clickable link, grouped under a short header like *"Here's everything I just created for {property/buyer} — click any file to open it in the preview:"*.
+- Do NOT paste the file contents back into chat alongside the links. The link is the deliverable — the agent clicks to open it in the preview pane.
+- Do NOT write a paragraph summarizing each file. One short intro sentence max, then the links.
+- If you updated an existing file (e.g., profile update, edited draft), still include a clickable link to it so the agent can re-open and verify.
+
+**Example — full New Listing package** (paths shown as illustrative; use the actual absolute paths from the agent's workspace):
+
+> Here's everything I just created for 742 Maple Drive — click any file to open it in the preview:
+>
+> [welcome-email.md](computer:///Users/jessica/Documents/Otto Workspace/Listings/742-maple-drive/01-Welcome/welcome-email.md)
+> [onboarding-survey.md](computer:///Users/jessica/Documents/Otto Workspace/Listings/742-maple-drive/02-Onboarding/onboarding-survey.md)
+> [prelisting-checklist.md](computer:///Users/jessica/Documents/Otto Workspace/Listings/742-maple-drive/03-Pre-Listing/prelisting-checklist.md)
+
+**Example — single one-off:**
+
+> [email_price_reduction.md](computer:///Users/jessica/Documents/Otto Workspace/Listings/742-maple-drive/07-Price-Adjustments/email_price_reduction.md)
 
 ---
 
