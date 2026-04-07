@@ -1,8 +1,8 @@
 {
   "name": "otto-marketplace",
   "owner": {
-    "name": "Arslan Ahmed",
-    "email": "arslan@salesgenius.co"
+    "name": "SalesGenius",
+    "email": "clientcare@salesgenius.co"
   },
   "metadata": {
     "description": "Otto — real estate AI assistant for licensed agents.",
@@ -23,10 +23,10 @@
         "agents"
       ],
       "author": {
-        "name": "Arslan Ahmed",
-        "email": "arslan@salesgenius.co"
+        "name": "SalesGenius",
+        "email": "clientcare@salesgenius.co"
       },
-      "homepage": "https://arslanahmed.com",
+      "homepage": "https://salesgenius.co",
       "repository": "https://github.com/arslvn93/otto",
       "license": "Proprietary"
     }
