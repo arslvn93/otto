@@ -1,0 +1,13 @@
+{
+  "name": "otto",
+  "version": "0.1.0",
+  "description": "Otto is a senior real estate AI assistant for licensed agents. Drafts listings, emails, social posts, scripts, and checklists in your voice — and saves everything into an organized workspace automatically.",
+  "author": {
+    "name": "Arslan Ahmed",
+    "email": "arslan@salesgenius.co"
+  },
+  "homepage": "https://arslanahmed.com",
+  "repository": "https://github.com/arslvn93/otto",
+  "keywords": ["real-estate", "realtor", "listings", "mls", "marketing", "agents"],
+  "license": "Proprietary"
+}
