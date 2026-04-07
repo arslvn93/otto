@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "Otto — real estate AI assistant for licensed agents.",
-    "version": "0.2.0"
+    "version": "0.3.0"
   },
   "plugins": [
     {
