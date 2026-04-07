@@ -129,29 +129,30 @@ This is the single most important behavior for agent usability. Instead of makin
 - When the agent's opening message already contains a specific, actionable request (e.g., "draft an MLS description for 742 Maple Drive")
 - In the middle of a package batch intake (finish the intake first)
 
-**The menu is a 3-step flow (4 steps for listing-side new-listing work).** Under Contract and Post-Close are stages *within* a listing- or buy-side engagement, not separate top-level packages. Always ask which side first, then which stage, then full-package-vs-one-time.
+**The menu is a 3-step flow (4 steps for the Listing-side new-listing one-off branch, and 2 steps for the Prospecting branch since prospecting has no stages).** Under Contract and Post-Close are stages *within* a listing- or buyer-side engagement, not separate top-level choices. Always ask which area first, then (for Listing/Buyer) which stage, then full-package-vs-one-time.
 
 Never ask all the questions at once — always wait for the agent to select one menu before showing the next. Do not combine menus.
 
 ---
 
-### Menu 1 — Which side? (always shown)
+### Menu 1 — What are you working on? (always shown)
 
-Use `AskUserQuestion` with a single question. The auto "Other" button handles one-off requests that don't belong to either side (generic marketing, prospecting, a CMA for a new pitch, etc.).
+Use `AskUserQuestion` with a single question. The auto "Other" button handles one-off requests that don't fit any of the three areas (generic marketing, a CMA for a new pitch, brand content, etc.).
 
 ```
 Question: "What are you working on?"
-Header: "Side"
+Header: "Area"
 Options:
   1. Listing — seller-side work (new listing, showings, under contract, post-close for a sold listing)
   2. Buyer — buy-side work (new buyer, showings, under contract, post-close for a buyer client)
+  3. Prospecting — outreach scripts, objection handling, FSBO / expired / circle prospecting
 ```
 
 If the agent picks **Other**, skip straight to the "Template routing" section below and ask what they need.
 
 ---
 
-### Menu 2 — Which stage?
+### Menu 2 — Which stage? (Listing and Buyer only)
 
 After Menu 1, show the stage menu that matches the side picked.
 
@@ -177,6 +178,8 @@ Options:
   3. Post-Close & Nurture — deal closed, long-term buyer nurture
 ```
 
+**If they picked Prospecting:** skip this stage question entirely — prospecting has no stages. Go directly to the Prospecting action menu under Menu 3 below.
+
 If Other is picked at Menu 2, ask what they need and route via "Template routing".
 
 ---
@@ -192,7 +195,7 @@ Question: "What would you like to do for this listing?"
 Header: "Listing action"
 Options:
   1. Run the full New Listing package — batch intake, generate all 9 seller-side deliverables
-  2. Work on a single one-time item — I'll ask which one next
+  2. One-time item (showing feedback, price reduction, offer presentation, just-sold email) — I'll ask which one next
 ```
 
 If they pick option 2, show **Menu 4 (Listing one-off)** below. If they pick option 1, begin the full Listing batch intake.
@@ -252,6 +255,25 @@ Options:
   1. Run the full Post-Close & Nurture package — generate all 5 nurture deliverables
   2. Pop-by email — seasonal drop-off / thinking-of-you note
 ```
+
+**Prospecting (no stage — shown directly after Menu 1):**
+
+```
+Question: "What kind of prospecting do you need?"
+Header: "Prospecting"
+Options:
+  1. FSBO outreach script — phone + door script for For-Sale-By-Owner leads
+  2. Expired listing script — phone + door script for expired MLS listings
+  3. Circle prospecting / door-knocking script — neighborhood outreach around a just-listed / just-sold
+  4. Objection handling talking points — buyer or seller pushback, hesitation, common objections
+```
+
+For Prospecting options 1–3, open `reference/ref_scripts_phone_and_door.md` and adapt the relevant script using `Otto Workspace/my_profile.md`. For option 4, open `reference/ref_objection_handling.md`. Save paths:
+
+- FSBO → `Otto Workspace/Prospecting/fsbo/fsbo-script-{YYYY-MM-DD}.md`
+- Expired → `Otto Workspace/Prospecting/expired/expired-script-{YYYY-MM-DD}.md`
+- Circle prospecting → `Otto Workspace/Prospecting/{neighborhood-slug}/circle-prospecting-{YYYY-MM-DD}.md` (ask which neighborhood first and derive a slug)
+- Objection handling → `Otto Workspace/Prospecting/objections/objection-handling-{topic-slug}.md` (ask which objection or type — buyer / seller / price / commission / timing — and slug it)
 
 Note: the purchaser visit request email is already a Mass Production item inside the full Under Contract package, so it is not listed as a separate one-time option. Same logic applies to any Mass Production item — if the agent wants just one standalone, they can pick Other or phrase it directly.
 
