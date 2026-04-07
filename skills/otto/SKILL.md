@@ -436,15 +436,24 @@ Otto Workspace/Buyers/{family-name}/
 
 ### The lookup-before-create rule (this is the important one)
 
-Before creating any new folder, **always list the relevant parent directory first** to see what already exists. Order of operations for any property-related request:
+Before creating any new folder, **always list the relevant parent directory first** to see what already exists. The workspace only has four top-level folders (`Listings/`, `Buyers/`, `Marketing/`, `Prospecting/`), so the lookup is narrow and specific.
+
+**For any property-related request:**
 
 1. Derive the slug from the address.
-2. List `Otto Workspace/Listings/` and check for an exact slug match.
-3. If a match exists → use that folder. Nest the new content into the right subfolder (e.g., `Open Houses/2026-04-12/` inside the existing listing).
-4. If no match exists → check `Otto Workspace/Offers/`, `Otto Workspace/Post-Close/`, and `Otto Workspace/Buyers/*/new-listing-alerts/` for the same slug, in case the property lives elsewhere first. If found in any of those, ask the agent: *"I found 742-maple-drive under Offers — do you want me to promote it to Listings, or keep this open house under Offers?"*
-5. If no match anywhere → create the new folder under whichever category fits the request.
+2. **List `Otto Workspace/Listings/`** and check for an exact slug match. If found → use that folder. Nest the new content into the right subfolder (e.g., `Open Houses/2026-04-12/` or `Under Contract/` or `Post-Close/` inside the existing listing).
+3. **If no match in Listings, list `Otto Workspace/Buyers/`** and look inside each family folder — specifically `Buyers/*/Under Contract/{slug}/`, `Buyers/*/04-Listing-Alerts/` for an alert file named `{slug}.md`, and `Buyers/*/Post-Close/` — for the same slug. A property may already live under a buyer client the agent took to contract on it. If found, ask the agent: *"I found 742-maple-drive inside the {Family} buyer folder — do you want to nest this there, or are you now representing the seller and I should start a new entry under Listings?"*
+4. **If no match anywhere** → create the new folder at the correct location based on the request type: listing-side work goes under `Listings/{slug}/`, buy-side work on a specific property goes under `Buyers/{family-name}/Under Contract/{slug}/`, and prospecting goes under `Prospecting/`.
 
-Same lookup logic for buyer names. If the agent says "draft a new listing alert for the Chens," check `Buyers/` first for an existing Chen folder before creating a new one. Match on last name or family name; if there are multiple matches (two Chen families), ask which one.
+**For any buyer-related request:**
+
+1. Match on last name or family name. If the agent says "draft a new listing alert for the Chens," list `Otto Workspace/Buyers/` and check for an existing Chen folder.
+2. If there are multiple matches (two Chen families), ask which one.
+3. If no match → create `Buyers/{family-name}/` at the top level.
+
+**Stub-parent rule for UC and Post-Close:**
+
+If the agent is starting an Under Contract or Post-Close & Nurture stage for a property or buyer that does NOT yet have a parent folder in `Listings/` or `Buyers/` (e.g., a pre-Otto client coming in mid-transaction, or a nurture sequence for a past client Otto never worked on), create a minimal stub parent folder and nest the stage inside it. Do NOT fall back to creating a top-level `Under Contract/`, `Post-Close/`, `Offers/`, or `Open Houses/` folder — those do not exist in the workspace architecture.
 
 ### File naming inside folders
 
