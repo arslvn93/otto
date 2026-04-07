@@ -30,6 +30,8 @@ This runs exactly once, the first time an agent uses Otto. Your job is to collec
 
 **Tone during onboarding:** warm, brief, conversational. Do not dump all the questions at once. Ask in small groups (2–4 at a time) so it feels like a conversation, not a form. If the agent gives you extra info unprompted, capture it.
 
+**Important:** Ask these onboarding questions as plain chat messages — **do NOT use the `AskUserQuestion` tool for onboarding**. Onboarding is a free-form conversation where the agent types answers naturally. `AskUserQuestion` is reserved for the main menu and the stage/package pickers *after* onboarding is complete.
+
 **Fields to collect (ask in this order, grouped):**
 
 *Group 1 — Who you are*
@@ -195,7 +197,7 @@ Question: "What would you like to do for this listing?"
 Header: "Listing action"
 Options:
   1. Run the full New Listing package — batch intake, generate all 9 seller-side deliverables
-  2. One-time item (showing feedback, price reduction, offer presentation, just-sold email) — I'll ask which one next
+  2. Showing feedback, price reduction, offer presentation, or just-sold email — I'll ask which one next
 ```
 
 If they pick option 2, show **Menu 4 (Listing one-off)** below. If they pick option 1, begin the full Listing batch intake.
