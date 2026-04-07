@@ -13,7 +13,7 @@
       "name": "otto",
       "source": "./plugins/otto",
       "description": "Otto is a senior real estate AI assistant for licensed agents. Runs full listing, buyer, under-contract, and post-close packages in batch, drafts any one-off content in your voice, and saves everything into an organized workspace automatically.",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "category": "real-estate",
       "tags": [
         "real-estate",
