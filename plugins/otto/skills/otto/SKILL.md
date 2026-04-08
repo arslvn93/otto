@@ -112,7 +112,44 @@ This runs exactly once, the first time an agent uses Otto. Your job is to collec
 
 3. **Verify the profile was actually written.** After the write, confirm the file now exists at `Otto Workspace/my_profile.md`. If the write failed for any reason, stop and tell the agent — do NOT proceed to the main menu as if setup succeeded. A silent failure here is the whole reason onboarding re-runs on every chat.
 
-4. **Confirm in one short message, then immediately show the main menu.** Send one brief confirmation like: *"All set, {first name}. Profile saved and your workspace is ready. Here's what I can do for you:"* — then immediately call `AskUserQuestion` with the main menu (see "Main menu" section below). Do NOT list back what they told you — they just said it. The menu is what shows them what's possible.
+4. **Confirm, show the full capability overview, then immediately show the main menu.** After the profile write is verified, send ONE message that (a) confirms setup and (b) gives the agent a clear map of everything Otto can do, so the menu choices that follow are never abstract. This overview is shown ONLY ONCE — on first-run onboarding completion. On every returning session, skip the overview and go straight to the menu (the agent has already seen it).
+
+Use this exact structure. Match the agent's chosen tone (professional / warm / casual / luxury) in the opener line only — keep the feature list itself plain and scannable so the agent can skim it fast.
+
+```
+All set, {first name}. Profile saved and your workspace is ready. Before I show you the menu, here's the full map of what I can do for you — so you know what's on the table.
+
+## Listing side (sellers)
+
+- **New Listing Package** — one batch intake, 9 deliverables out: welcome email, onboarding survey, pre-listing checklist, go-to-market email, MLS description, Just Listed social posts (Instagram, Facebook, LinkedIn), weekly showing feedback template, and open house promo. Everything saved into a per-property folder.
+- **Under Contract** — transaction checklist, purchaser visit request email, conditions calendar reminders, and Notice of Fulfilment emails to your client and the other agent.
+- **Post-Close & Nurture** — closing congrats, referral request, annual check-ins, birthday messages, occasion reminders, seasonal pop-bys.
+- **One-off items** — weekly showing feedback update, price reduction / cancel & relist email, offer presentation, just-sold + next steps email.
+
+## Buyer side (buyers)
+
+- **New Buyer Package** — one batch intake, 6 deliverables out: consultation questionnaire, welcome email, onboarding survey, listing alert template, offer process review, offer prep questionnaire.
+- **Under Contract** — same 4 deliverables as listing side, written from the buyer's perspective.
+- **Post-Close & Nurture** — closing congrats, referral request, annual check-ins, birthday messages, occasion reminders, and pop-bys, written for buyer clients.
+- **One-off items** — showings recap email, conditional offer accepted email, firm deal congrats.
+
+## Prospecting (outreach)
+
+- **FSBO outreach** — phone and door scripts for For-Sale-By-Owner leads.
+- **Expired listings** — phone and door scripts for expired MLS listings.
+- **Circle prospecting / door-knocking** — neighbourhood outreach around a just-listed or just-sold.
+- **Objection handling** — talking points for buyer or seller pushback (price, commission, timing, needing an agent).
+
+## Anything else
+
+CMA cover letters, counter-offer emails, annual check-ins, Just Sold social posts, custom emails — just ask directly or pick **Other** on any menu and I'll find the right template.
+
+Every output gets saved into your `Otto Workspace/` folder organized by property or client. You can walk away for a month, come back, and every email, script, and post is exactly where you left it.
+
+Ready when you are — here's where you want to start:
+```
+
+**Immediately** after sending this message, call `AskUserQuestion` with Menu 1 (see "Main menu" section below). Do not wait for the agent to respond to the text first — the overview and the menu fire as one turn. Do NOT list back the profile fields the agent just gave you — they just typed them, they don't need the recap.
 
 **If the agent asks during onboarding "why do you need this?"** → *"So every email, listing, and post comes out in your voice with your contact info baked in. You tell me once, I remember forever."*
 
