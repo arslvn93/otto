@@ -140,6 +140,10 @@ All set, {first name}. Profile saved and your workspace is ready. Before I show 
 - **Circle prospecting / door-knocking** — neighbourhood outreach around a just-listed or just-sold.
 - **Objection handling** — talking points for buyer or seller pushback (price, commission, timing, needing an agent).
 
+## Executive assistant mode
+
+Say **"be my executive assistant"** (or **"what should I work on today"**, **"extract actions from these notes"**, **"am I on pace"**) and I'll switch into EA mode — a separate skill in this plugin that protects your time, keeps you on pace against your deal and GCI goals, and pulls actions out of meeting notes and call recaps. First time you invoke it, EA mode will ask a few extra questions (goals, pipeline snapshot, lead sources, working style, vendors) and save them to `Otto Workspace/my_ea_profile.md` so it can actually be useful, not generic.
+
 ## Anything else
 
 CMA cover letters, counter-offer emails, annual check-ins, Just Sold social posts, custom emails — just ask directly or pick **Other** on any menu and I'll find the right template.

@@ -125,11 +125,11 @@ A **package** is a named workflow tied to a transaction stage. When the agent st
 
 **Triggers:** "start under contract package", "we're under contract on X", "deal accepted on X", "went firm on X"
 
-**Root folder:** Context-dependent.
+**Root folder:** Depends on the side picked in Menu 1.
 - Listing side → `Otto Workspace/Listings/{address-slug}/Under Contract/`
 - Buy side → `Otto Workspace/Buyers/{family-name}/Under Contract/{address-slug}/`
 
-Always run the lookup-before-create check first. If neither parent folder exists, ask the agent which side they're on and create the appropriate parent.
+Always run the lookup-before-create check first. If the parent `Listings/{slug}/` or `Buyers/{family}/` folder doesn't exist yet, create a minimal stub parent and nest Under Contract inside it. Do NOT create a top-level `Under Contract/` folder — that no longer exists.
 
 **Batch intake:**
 
@@ -168,9 +168,11 @@ Always run the lookup-before-create check first. If neither parent folder exists
 
 **Triggers:** "start post close package", "deal closed on X", "start nurture for the {family}", "closing package"
 
-**Root folder:** `Otto Workspace/Post-Close/{family-name or address-slug}/`
+**Root folder:** Depends on the side picked in Menu 1.
+- Listing side (nurturing a past seller) → `Otto Workspace/Listings/{address-slug}/Post-Close/`
+- Buy side (nurturing a past buyer) → `Otto Workspace/Buyers/{family-name}/Post-Close/`
 
-If an existing listing or buyer folder for this client already exists, offer to nest under it instead: *"I found {slug} under Listings — want me to add the post-close files there, or create a new Post-Close folder?"*
+Always run the lookup-before-create check first. If the parent `Listings/{slug}/` or `Buyers/{family}/` folder doesn't exist (common when starting nurture for a pre-Otto client), create a minimal stub parent and nest Post-Close inside it. Do NOT create a top-level `Post-Close/` folder — that no longer exists.
 
 **Batch intake:**
 
@@ -202,13 +204,13 @@ If an existing listing or buyer folder for this client already exists, offer to 
 
 ---
 
-## The menu (shown via AskUserQuestion)
+## The menu flow
 
-When Otto is invoked fresh (no active request in flight) OR right after first-run onboarding completes, present the packages via `AskUserQuestion`. Use these four options (the "Other" option is automatic and handles one-offs):
+The exact menu tool calls are specified in `SKILL.md` under "Main menu (via AskUserQuestion)". It is a **3-step flow (4 steps when working on a single one-time item inside the New Listing branch):**
 
-- **Start a Listing package** — new property going to market
-- **Start a Buyer package** — new buyer client onboarding
-- **Start an Under Contract package** — deal accepted, working through conditions
-- **Start a Post-Close & Nurture package** — deal closed, starting nurture sequence
+1. **Menu 1 — Side.** Listing or Buyer. Under Contract and Post-Close are stages *within* a side, never their own top-level choice.
+2. **Menu 2 — Stage.** New Listing/Buyer Package, Under Contract, or Post-Close & Nurture.
+3. **Menu 3 — Action.** Full package or one of that side+stage's one-time items.
+4. **Menu 4 — Listing one-off (conditional).** Only shown when the agent picked "Work on a single one-time item" in the Listing → New Listing branch of Menu 3, because that branch has 4 one-time items and can't fit them all alongside "Full package" in a single 4-option menu.
 
-If the agent picks one, immediately begin that package's batch intake. If they pick Other, ask what they need and route to the right one-off template.
+If the agent picks "Full package" at Menu 3, begin that package's batch intake using the intake questions in this file. If they pick a specific one-time item (at Menu 3 or Menu 4), skip batch intake and ask only for the details that specific template needs.

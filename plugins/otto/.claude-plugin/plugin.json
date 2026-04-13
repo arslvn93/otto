@@ -1,6 +1,6 @@
 {
   "name": "otto",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Otto is a senior real estate AI assistant for licensed agents. Runs full listing, buyer, under-contract, and post-close packages in batch — plus drafts any one-off listing description, email, social post, script, or checklist in the agent's voice, and saves everything into an organized workspace automatically.",
   "author": {
     "name": "SalesGenius",
