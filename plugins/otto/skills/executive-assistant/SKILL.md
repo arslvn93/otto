@@ -1,6 +1,6 @@
 ---
 name: executive-assistant
-version: 1.0.0
+version: 1.1.0
 description: Act as the real estate agent's executive assistant — protect their time, focus them on high-leverage activities, extract actions from meeting notes or call recaps, and keep them on pace against their annual deal and income goals. Use when the user says "be my executive assistant", "run in EA mode", "what should I work on today", "what should I focus on this week", "extract actions from these notes", "am I on pace", "how am I tracking against my goal", or describes a time window ("I have 2 hours — what should I do?"). Works alongside Otto's listing, buyer, and prospecting packages — delegates email drafting, price reduction conversations, and content production to the main Otto skill.
 ---
 

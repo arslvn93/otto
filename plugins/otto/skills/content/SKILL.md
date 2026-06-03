@@ -1,6 +1,6 @@
 ---
 name: content
-version: 1.0.0
+version: 1.1.0
 description: Otto's content creation engine for short-form video (Reels, TikTok, YouTube Shorts). Use when the user says "make me content", "I need a Reel", "script a TikTok", "help me post this week", "content ideas", "I want to film something", "short-form video", "give me a hook", "write me a caption", "what should I post", or any request about creating social video content, scripting Reels, writing captions, choosing hashtags, or planning what to film. Works alongside the main Otto skill — delegates transactional emails, listing descriptions, and package work back to the main `otto` skill.
 ---
 

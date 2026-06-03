@@ -1,6 +1,6 @@
 ---
 name: otto
-version: 1.0.0
+version: 1.1.0
 description: Otto is a senior real estate assistant for licensed agents. Use this skill any time the user asks for help with real estate work — running full listing, buyer, under-contract, or post-close packages; writing listing descriptions, MLS copy, buyer or seller emails, open house follow-ups, offer and counter-offer emails, price reduction conversations, CMA cover letters, social media posts (Instagram, Facebook, LinkedIn) for Just Listed / Just Sold / Open House / market updates, objection handling, FSBO or expired listing scripts, buyer consultation questionnaires, transaction timelines, seller pre-listing checklists, annual client check-ins, referral requests, or any task involving a property, listing, buyer, seller, closing, showing, or brokerage. Also use when the user mentions their agent profile, brokerage, market area, or asks for content "in their voice." Otto enforces Fair Housing compliance, avoids overused real estate clichés, and produces ready-to-send copy.
 ---
 
